@@ -34,10 +34,10 @@ In this example, below product version and file system layout is used
 - Azure Database for MySQL (Version: 8.0.15)
 - MySQL C API Connector - libmysqlclient (Version: 6.1.11)
 
-| File System        | Description                                                  | Size (GB)             | Owner      | Group  | Storage                    |
-| ------------------ | ------------------------------------------------------------ | --------------------- | ---------- | ------ | -------------------------- |
+| File System        | Description                                                                                                               | Size (GB)             | Owner  | Group  | Storage                    |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | The  file system for installation of SAP BOBI instance, default Tomcat Web Application and database drivers (if required) | SAP Sizing Guidelines | bl1adm | sapsys | Managed Premium Disk - SSD |
-| /usr/sap/frsinput  | The mount directory is for the shared files between all BOBI hosts which will be used as Input File Repository Directory | Business Need         | bl1adm | sapsys | Azure NetApp Files         |
+| /usr/sap/frsinput  | The mount directory is for the shared files between all BOBI hosts which will be used as Input File Repository Directory  | Business Need         | bl1adm | sapsys | Azure NetApp Files         |
 | /usr/sap/frsoutput | The mount directory is for the shared files between all BOBI hosts which will be used as Output File Repository Directory | Business Need         | bl1adm | sapsys | Azure NetApp Files         |
 
 ## Deploy Linux Virtual Machine via Azure Portal
@@ -149,7 +149,7 @@ The steps in this section use the following prefixes:
     ```bash
     sudo blkid
 
-    #It will display information about block device. Copy UUID of the fomatted block device
+    #It will display information about block device. Copy UUID of the formatted block device
 
     /dev/sdc: UUID="0eb5f6f8-fa77-42a6-b22d-7a9472b4dd1b" TYPE="xfs"
     ```
@@ -687,3 +687,10 @@ Following is the recommendation for disaster recovery of each tier used in this 
 | BI Application Servers    | Replicate by using Site Recovery                                                                         |
 | Azure NetApp Files        | File based copy tool to replicate data to Secondary Region **or** ANF Cross Region Replication (Preview) |
 | Azure Database for MySQL  | Cross region read replicas **or** Restore backup from geo-redundant backups.                             |
+
+## Next Steps
+
+- [Set up disaster recovery for a multi-tier SAP app deployment](../../../site-recovery/site-recovery-sap.md)
+- [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
+- [Azure Virtual Machines deployment for SAP](deployment-guide.md)
+- [Azure Virtual Machines DBMS deployment for SAP](dbms-guide.md)
